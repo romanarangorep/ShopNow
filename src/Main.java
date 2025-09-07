@@ -2,13 +2,14 @@ import java.util.Date;
 import model.Client;
 import model.Order;
 import model.Product;
+import java.time.LocalDateTime;
 
 public class Main {
     //instanciar=crear, en java crear tiene una palabra la cual es new
     public static void main(String[] args) {
         Client client1 = new Client("Roman Arango","roman.arango@uptc.edu.co");
         client1.showInfo();
-        Date buyDate = new Date();
+        LocalDateTime buyDate = LocalDateTime.now();
         //creamos los 5 productos para ejecutarlos
         Product product1 = new Product("Computador", 1500000, 167378);
         Product product2 = new Product("celular", 200000, 160598);

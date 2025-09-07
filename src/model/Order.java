@@ -8,10 +8,14 @@ public class Order {
     private LocalDateTime buyDate;
     private ArrayList<Product> productsArray = new ArrayList<>();
     //si fuera list seria private List<Product> productsArray = new ArrayList<>();
+    //constante para darle un formato a la fecha
+    private static final DateTimeFormatter SPANISH_FORMATTER =
+    DateTimeFormatter.ofPattern("EEEE, dd MMMM yyyy HH:mm", Locale.of("es", "ES"));
+    
 
-    public Order(int idOrder, Date buyDate) {
+    public Order(int idOrder, LocalDateTime buyDate) {
         this.idOrder = idOrder;
-        this.buyDate = LocalDateTime.now();
+        this.buyDate = buyDate;
     }
 
     public void addProduct(Product newProduct){
@@ -36,7 +40,13 @@ public class Order {
         for (Product product : productsArray) {
             System.out.println("-"+product.getProductName()+" id:"+product.getProductId()+" precio: "+product.getProductPrice());
         }
-        System.out.println("el precio total de su pedido es: $"+TotalCost()+" la fecha maxima de pago de su orden es: "+ buyDate.plusHours(24));
+        
+        //calculamos fecha limite
+        LocalDateTime dueDate = buyDate.plusHours(24);
+        //le damos un formato a esa fecha limite
+        String formattedDueDate = dueDate.format(SPANISH_FORMATTER);
+
+        System.out.println("El precio total de su pedido es: $" + TotalCost() +   "  La fecha máxima de pago de su orden es: " + formattedDueDate);
     }
 
 
