@@ -1,17 +1,20 @@
 package model;
 import java.util.*;
-
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Order {
     private int idOrder;
+    private LocalDateTime buyDate;
     private ArrayList<Product> productsArray = new ArrayList<>();
     //si fuera list seria private List<Product> productsArray = new ArrayList<>();
 
-    public Order(int idOrder) {
+    public Order(int idOrder, Date buyDate) {
         this.idOrder = idOrder;
+        this.buyDate = LocalDateTime.now();
     }
 
-    public void addProducts(Product newProduct){
+    public void addProduct(Product newProduct){
         productsArray.add(newProduct);
         /*add.(int index, product), index es la posicion en la que debe colocar el product, ej:
         add.(3,newProduct)*/
@@ -26,8 +29,15 @@ public class Order {
         }
         return totalCost;
     }
+    //colocar metodo con showinfo order con el id y el costo (optimizar mas) usar bucles mas optimos como for each
 
-    
+    public void showOrder(){
+        System.out.println("Pedido #: "+idOrder);
+        for (Product product : productsArray) {
+            System.out.println("-"+product.getProductName()+" id:"+product.getProductId()+" precio: "+product.getProductPrice());
+        }
+        System.out.println("el precio total de su pedido es: $"+TotalCost()+" la fecha maxima de pago de su orden es: "+ buyDate.plusHours(24));
+    }
 
 
 }

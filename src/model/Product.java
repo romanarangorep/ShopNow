@@ -18,6 +18,12 @@ public class Product {
     public double getProductPrice() {
         return productPrice;
     }
+    public String getProductName(){
+        return productName;
+    }
+    public int getProductId(){
+        return idProduct;
+    }
 
 
 
