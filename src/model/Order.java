@@ -10,7 +10,7 @@ public class Order {
     //si fuera list seria private List<Product> productsArray = new ArrayList<>();
     //constante para darle un formato a la fecha
     private static final DateTimeFormatter SPANISH_FORMATTER =
-    DateTimeFormatter.ofPattern("EEEE, dd MMMM yyyy HH:mm", Locale.of("es", "ES"));
+    DateTimeFormatter.ofPattern("EEEE, dd MMMM yyyy HH:mm", Locale.of("es", "Co"));
     
 
     public Order(int idOrder, LocalDateTime buyDate) {

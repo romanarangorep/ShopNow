@@ -12,10 +12,29 @@ public class Client {
     }
     //luego van los demas metodos, pueden ser los getters y setters o mostrarcliente, etc.
     public void showInfo(){
-    System.out.println("client information: "+"Client name: "+ name+" Client email: "+email);
+    System.out.println("client information: "+"Client name: "+ name+" | Client email: "+email);
+    }
+
+    //getters y setters
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+    
+    public String getEmail(){
+        return email;
+    }
+
+    public void setEmail(String email){
+        this.email = email;
+    }
     }
 
 
        
 
-}
+
