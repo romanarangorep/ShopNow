@@ -1,6 +1,8 @@
 import model.Client;
 import model.Order;
 import model.Product;
+import model.ProductLoader;
+
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -14,7 +16,10 @@ public class Main {
         Client client1 = new Client("Roman Arango","roman.arango@uptc.edu.co");
         client1.showInfo();
 
+        /*hacemos el catalogo y lo llenamos, es el "carrito"
+
         List<Product> catalog = new ArrayList<>();
+        
         catalog.add(new Product("Computador", 1500000.0, 1));
         catalog.add(new Product("Celular", 2000000.0, 2));
         catalog.add(new Product("Reloj inteligente", 80000.0, 3));
@@ -25,33 +30,50 @@ public class Main {
         catalog.add(new Product("Monitor 24\"", 600000.0, 8));
         catalog.add(new Product("SSD 1TB", 320000.0, 9));
         catalog.add(new Product("Mouse gaming", 90000.0, 10));
+        */
+
+        List<Product> catalog = ProductLoader.loadProducts("D:\\UPTC\\Segundo semestre\\Programacion\\ShopNow\\ShopNow\\src\\Catalog.txt");
+
+
+
+        //mostramos el catalogo
 
         System.out.println("catalogo:");
         for (Product p : catalog) {
             System.out.println(p.getProductId() + " - " + p.getProductName() + " Price: " + p.getProductPrice());
         }
 
+        //instanciamos el pedido
+
         LocalDateTime buyDate = LocalDateTime.now();
         Order order1 = new Order(1,buyDate);
+
+        //do-while para que el cliente utilice el carrito 
 
           do {
             System.out.print("Ingresa el id del producto (0 para finalizar): ");
             id = sc.nextInt();
 
+            //null significa que esta vacio
+
             Product seleccionado = null;
-            for (Product p : catalog) {
-                if (p.getProductId() == id) {
-                    seleccionado = p;
+            for (Product c : catalog) {
+                if (c.getProductId() == id) {
+                    seleccionado = c;
                     break;
                 }
             }
 
+            //si esta diferente de null, se tiene un producto entonces se muestra el nombre del producto agregado
+
             if (seleccionado != null) {
                 order1.addProduct(seleccionado);
                 System.out.println(" Producto agregado: " + seleccionado.getProductName());
+                //si es diferente de 0 y es null la opcion es invalida
             } else if (id != 0) {
                 System.out.println("Opción inválida. Intente de nuevo.");
             }
+            //Si el usuario pone 0 se cierra el do-while
 
         } while (id != 0);
 

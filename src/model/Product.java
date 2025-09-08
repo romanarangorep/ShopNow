@@ -15,6 +15,8 @@ public class Product {
         System.out.println("Product info: "+ "Product name: "+ productName + "Product price: "+ productPrice + "Product ID: "+idProduct);
     }
 
+    //getters y setters
+
     public double getProductPrice() {
         return productPrice;
     }

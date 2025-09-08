@@ -1,0 +1,30 @@
+1,Computer,2500.0
+2,Laptop Ultrabook,3200.0
+3,Monitor 24",400.0
+4,Mechanical Keyboard,120.0
+5,Optical Mouse,45.0
+6,Multifunction Printer,380.0
+7,WiFi AX Router,210.0
+8,Hard Drive 1TB,90.0
+9,SSD 512GB,150.0
+10,RAM 16GB,85.0
+11,Power Supply 650W,95.0
+12,ATX Motherboard,220.0
+13,Intel i5 Processor,290.0
+14,Ryzen 7 Processor,360.0
+15,GTX 1660 Graphics Card,380.0
+16,1080p Webcam,60.0
+17,USB Microphone,70.0
+18,Gaming Headset,110.0
+19,Bluetooth Speaker,55.0
+20,UPS 1kVA,140.0
+21,Large Mousepad,18.0
+22,External HDD 2TB,120.0
+23,USB Hub 7 Ports,30.0
+24,Network Switch 8 Ports,50.0
+25,Laptop Stand,25.0
+26,CPU Cooler,40.0
+27,Mid Tower Case,75.0
+28,HDMI Cable 2m,12.0
+29,USB-C to HDMI Adapter,20.0
+30,External Sound Card,48.0
