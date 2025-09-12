@@ -35,7 +35,8 @@ public class Order {
     }
     //colocar metodo con showinfo order con el id y el costo (optimizar mas) usar bucles mas optimos como for each
 
-    public void showOrder(){
+    public String showOrder(){
+        String checkoutMessage;
         System.out.println("Pedido #: "+idOrder);
         for (Product product : productsArray) {
             System.out.println("-"+product.getProductName()+" id:"+product.getProductId()+" precio: "+product.getProductPrice());
@@ -46,7 +47,8 @@ public class Order {
         //le damos un formato a esa fecha limite
         String formattedDueDate = dueDate.format(SPANISH_FORMATTER);
 
-        System.out.println("El precio total de su pedido es: $" + TotalCost() +   "  La fecha máxima de pago de su orden es: " + formattedDueDate);
+        checkoutMessage = ("El precio total de su pedido es: $" + TotalCost() +   "  La fecha máxima de pago de su orden es: " + formattedDueDate);
+        return checkoutMessage;
     }
 
 
