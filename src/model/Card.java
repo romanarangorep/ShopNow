@@ -1,12 +1,12 @@
 package model;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Card extends PaymentMethod{
-    private short cvv;
+    private int cvv;
     private int cardNumber;
-    private LocalDate date;
+    private LocalDateTime date;
 
-    public Card(String ownerName, double amount, short cvv, int cardNumber, LocalDate date){
+    public Card(String ownerName, double amount, int cvv, int cardNumber,LocalDateTime date){
         super(ownerName, amount);
         this.cvv = cvv;
         this.cardNumber = cardNumber;

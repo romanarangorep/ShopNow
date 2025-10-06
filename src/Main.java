@@ -1,4 +1,7 @@
+import model.BankTransfer;
+import model.Card;
 import model.Client;
+import model.DigitalWallet;
 import model.Order;
 import model.PaymentMethod;
 import model.Product;
@@ -32,7 +35,10 @@ public class Main {
         catalog.add(new Product("SSD 1TB", 320000.0, 9));
         catalog.add(new Product("Mouse gaming", 90000.0, 10));
         */
-        List<PaymentMethod> pay1 = new PaymentMethod()
+        LocalDateTime buyDate = LocalDateTime.now();
+        Card payCard = new Card("Roman Arango",10000.0, 285, 105789320, buyDate);
+        BankTransfer payBank = new BankTransfer("Roman Arango", 10000.0, 1057897634, "Davivienda");
+        DigitalWallet payWallet = new DigitalWallet("Roman Arango", 10000.0, 1057894567);
 
         List<Product> catalog = ProductLoader.loadProducts("D:\\UPTC\\Segundo semestre\\Programacion\\ShopNow\\ShopNow\\src\\Catalog.txt");
 
@@ -47,8 +53,9 @@ public class Main {
 
         //instanciamos el pedido
 
-        LocalDateTime buyDate = LocalDateTime.now();
-        Order order1 = new Order(1,buyDate,pay1);
+        
+        Order order1 = new Order(1,buyDate,payCard);
+        
 
         //do-while para que el cliente utilice el carrito 
 
@@ -83,6 +90,7 @@ public class Main {
 
         // mostramos el resumen del pedido
         order1.showOrder();
+        order1.processOrder();
         
 
        
