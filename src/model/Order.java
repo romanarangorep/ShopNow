@@ -7,13 +7,15 @@ public class Order {
     private int idOrder;
     private LocalDateTime buyDate;
     private ArrayList<Product> productsArray = new ArrayList<>();
+    private PaymentMethod payMethod;
     //si fuera list seria private List<Product> productsArray = new ArrayList<>();
     //constante para darle un formato a la fecha
     private static final DateTimeFormatter SPANISH_FORMATTER =
     DateTimeFormatter.ofPattern("EEEE, dd MMMM yyyy HH:mm", Locale.of("es", "Co"));
     
 
-    public Order(int idOrder, LocalDateTime buyDate) {
+    public Order(int idOrder, LocalDateTime buyDate, PaymentMethod payMethod){
+        this.payMethod = payMethod;
         this.idOrder = idOrder;
         this.buyDate = buyDate;
     }
@@ -49,6 +51,11 @@ public class Order {
 
         checkoutMessage = ("El precio total de su pedido es: $" + TotalCost() +   "  La fecha máxima de pago de su orden es: " + formattedDueDate);
         return checkoutMessage;
+    }
+
+    public void processOrder(){
+        System.out.println("Procesando pedido: " + "\n numero pedido:" + idOrder);
+        payMethod.processPayment();
     }
 
 

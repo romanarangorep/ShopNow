@@ -1,5 +1,6 @@
 import model.Client;
 import model.Order;
+import model.PaymentMethod;
 import model.Product;
 import model.ProductLoader;
 
@@ -31,6 +32,7 @@ public class Main {
         catalog.add(new Product("SSD 1TB", 320000.0, 9));
         catalog.add(new Product("Mouse gaming", 90000.0, 10));
         */
+        List<PaymentMethod> pay1 = new PaymentMethod()
 
         List<Product> catalog = ProductLoader.loadProducts("D:\\UPTC\\Segundo semestre\\Programacion\\ShopNow\\ShopNow\\src\\Catalog.txt");
 
@@ -46,7 +48,7 @@ public class Main {
         //instanciamos el pedido
 
         LocalDateTime buyDate = LocalDateTime.now();
-        Order order1 = new Order(1,buyDate);
+        Order order1 = new Order(1,buyDate,pay1);
 
         //do-while para que el cliente utilice el carrito 
 
