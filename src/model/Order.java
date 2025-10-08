@@ -58,5 +58,9 @@ public class Order {
         payMethod.processPayment();
     }
 
+    public void setPayMethod(PaymentMethod payMethod){
+        this.payMethod=payMethod;
+    }
+
 
 }
