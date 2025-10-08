@@ -102,7 +102,7 @@ public class Main {
             case 1:
                 System.out.print("Ingrese el número de tarjeta: ");
                 int cardNumber = sc.nextInt();
-                System.out.print("Ingrese el código CVV: ");
+                System.out.print("Ingrese el código cvv: ");
                 int cvv = sc.nextInt();
                 sc.nextLine();
                 payment = new Card(clientName, totalAmount, cvv, cardNumber, buyDate);
@@ -122,12 +122,12 @@ public class Main {
                 payment = new DigitalWallet(clientName, totalAmount, walletNumber);
                 break;
             default:
-                System.out.println("Opción inválida. Se usará método por defecto: Tarjeta.");
+                System.out.println("Opción inválida. Se usará Tarjeta.");
                 payment = new Card(clientName, totalAmount, 0, 0, buyDate);
                 break;
         }
 
-        System.out.println("\nProcesando pago...");
+        System.out.println("\nProcesando pago");
         payment.processPayment();
         System.out.println("Pago completado con éxito");
         return payment;

@@ -20,7 +20,13 @@ public class Order {
         this.buyDate = buyDate;
     }
 
-    public void addProduct(Product newProduct){
+     public void setPayMethod(PaymentMethod payMethod){
+        this.payMethod=payMethod;
+    }
+
+
+    public void addProduct(Product newProduct)throws IllegalArgumentException{
+        if(newProduct == null) throw new IllegalArgumentException("El producto no puede ser nulo");
         productsArray.add(newProduct);
         /*add.(int index, product), index es la posicion en la que debe colocar el product, ej:
         add.(3,newProduct)*/
@@ -57,10 +63,4 @@ public class Order {
         System.out.println("Procesando pedido: " + "\n numero pedido:" + idOrder);
         payMethod.processPayment();
     }
-
-    public void setPayMethod(PaymentMethod payMethod){
-        this.payMethod=payMethod;
-    }
-
-
 }
